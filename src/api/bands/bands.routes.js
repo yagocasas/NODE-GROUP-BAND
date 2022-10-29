@@ -13,14 +13,13 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  // NO NOS DEVUELEVE EL CATCH?
   try {
     const id = req.params.id;
     const bandToFind = await Band.findById(id);
     console.log(bandToFind);
     return res.status(200).json(bandToFind);
   } catch (error) {
-    return res.status(500).json(error);
+    return res.status(500).json('Error al encontrar por Id');
   }
 });
 

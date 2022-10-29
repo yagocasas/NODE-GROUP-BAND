@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_URL = "mongodb+srv://bandsgroup:bandsgroup@cluster0.z7ls8i6.mongodb.net/bandsgroup?retryWrites=true&w=majority";
+const DB_URL = process.env.DB_URL;
 
 if (!DB_URL) throw new Error('No se ha podido conectar a la db');
 
@@ -15,7 +15,7 @@ const connectDb = async () => {
 };
 
 module.exports = {
-    DB_URL, // Cuando metamos en el .env, lo borramos.
+    DB_URL,
     connectDb,
 };
 
