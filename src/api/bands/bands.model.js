@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const bandSchema = new Schema(
   {
     name: { type: String, required: true },
-    image: {
+    img: {
         type: String,
         default:
           "https://p1.pxfuel.com/preview/870/604/61/concert-singer-women-music-singing.jpg",
@@ -30,9 +30,11 @@ const bandSchema = new Schema(
     origin: { type: String },
     founded: { type: Number, required: true},
     currentlyActive: { type: Boolean },
-    members: { type: mongoose.Types.ObjectId, ref: "members" },
+    members: { type: String},
+    // members: { type: mongoose.Types.ObjectId, ref: "members" },
     exMembers: { type: String },
-    discography: { type: mongoose.Types.ObjectId, ref: "discography" },
+    discography: { type: String},
+    // discography: { type: mongoose.Types.ObjectId, ref: "discography" },
   },
   {
     timestamps: true,
