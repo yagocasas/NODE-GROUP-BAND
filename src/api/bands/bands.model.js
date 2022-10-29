@@ -5,7 +5,11 @@ const Schema = mongoose.Schema;
 const bandSchema = new Schema(
   {
     name: { type: String, required: true },
-    founded: { type: Number, required: true },
+    image: {
+        type: String,
+        default:
+          "https://p1.pxfuel.com/preview/870/604/61/concert-singer-women-music-singing.jpg",
+      },
     genre: {
       type: String,
       enum: [
@@ -24,13 +28,11 @@ const bandSchema = new Schema(
       required: true,
     },
     origin: { type: String },
+    founded: { type: Number, required: true},
+    currentlyActive: { type: Boolean },
     members: { type: mongoose.Types.ObjectId, ref: "members" },
+    exMembers: { type: String },
     discography: { type: mongoose.Types.ObjectId, ref: "discography" },
-    image: {
-      type: String,
-      default:
-        "https://p1.pxfuel.com/preview/870/604/61/concert-singer-women-music-singing.jpg",
-    },
   },
   {
     timestamps: true,
