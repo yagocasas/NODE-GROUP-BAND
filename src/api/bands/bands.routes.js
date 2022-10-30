@@ -1,7 +1,9 @@
 const express = require("express");
 const Band = require("./bands.model");
+const upload = require("../../middlewares/file")
 
 const { isAuth, isAdmin } = require('../../middlewares/auth');
+const upload = require("../../middlewares/file");
 
 const router = express.Router();
 
@@ -36,9 +38,12 @@ router.get("/name/:name", async (req, res) => {
   }
 });
 
-router.post("/create", async (req, res) => {
+router.post("/create", upload.single("img"), async (req, res) => {
   try {
     const band = req.body;
+    if (req.find){
+      band.img = req.file.path
+    }
     const newBand = new Band(band);
     const created = await newBand.save();
     return res.status(201).json(created);
