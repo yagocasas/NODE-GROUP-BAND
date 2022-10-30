@@ -2,7 +2,7 @@ const User = require("../api/users/users.model");
 
 const { verifyJwt } = require("../utils/jwt/jwt");
 
-const isAuth = async (req, res) => {
+const isAuth = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
     if (!token) {
@@ -16,15 +16,15 @@ const isAuth = async (req, res) => {
     req.user = userLogged;
     next();
   } catch (error) {
-    return next("No tienes acceso");
+    return res.status(401).json("necesitas loguearte");
   }
 };
 
-const isAdmin = async (req, res) => {
+const isAdmin = async (req, res, next) => {
     try {
       const token = req.headers.authorization;
       if (!token) {
-          return next("Unauthorized");
+          return res.status(401).json("necesitas loguearte");
       }
       const parsedToken = token.replace("Bearer ", "");
       const validToken = verifyJwt(parsedToken);
@@ -34,7 +34,7 @@ const isAdmin = async (req, res) => {
       req.user = userLogged;
       next();
     } catch (error) {
-      return next("No tienes acceso");
+      return res.status(403).json("necesitas loguearte") ;
     }
   };
 

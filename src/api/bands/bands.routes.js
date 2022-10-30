@@ -1,13 +1,13 @@
 const express = require("express");
 const Band = require("./bands.model");
-const upload = require("../../middlewares/file")
+
 
 const { isAuth, isAdmin } = require('../../middlewares/auth');
 const upload = require("../../middlewares/file");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     const allBands = await Band.find().populate('discography');
     return res.status(200).json(allBands);
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", [isAuth], async (req, res) => {
+router.get("/:id", [isAuth], async (req, res, next) => {
   try {
     const id = req.params.id;
     const bandToFind = await Band.findById(id);
@@ -41,7 +41,7 @@ router.get("/name/:name", async (req, res) => {
 router.post("/create", upload.single("img"), async (req, res) => {
   try {
     const band = req.body;
-    if (req.find){
+    if (req.file){
       band.img = req.file.path
     }
     const newBand = new Band(band);
