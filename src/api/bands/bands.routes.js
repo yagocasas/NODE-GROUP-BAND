@@ -52,6 +52,21 @@ router.post("/create", upload.single("img"), async (req, res) => {
   }
 });
 
+router.post('/add-album/:id', async (req, res, next) => {
+  try {
+      const { id } = req.params;
+      const {album} = req.body;
+
+      const bandUpdated = await Band.findByIdAndUpdate(id, { $set: { discography: album } }, {new: true, lean: true});
+
+      console.log(bandUpdated);
+
+      return res.status(201).json({ message: 'Album added sucessfully', bandUpdated });
+  } catch (error) {
+      return next(error);
+  }
+});
+
 router.put("/edit/:id", async (req, res) => {
   // SE EDITADO SOLO EL PRIMER VALOR
   try {
