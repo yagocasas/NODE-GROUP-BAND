@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
 
 router.get("/title/:title", async (req, res) => {
   try {
-    const title = req.params.disc;
+    const title = req.params.title;
     const discByTitle = await Disc.findOne({ title: title });
     console.log(discByTitle);
     return res.status(200).json(discByTitle);
