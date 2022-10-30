@@ -9,7 +9,7 @@ const albumSchema = new Schema (
         released: { type: Date },
         label: { type: String },
         producer: { type: String},
-        length: { type: Number }
+        length: { type: String }
     },
     {
         timestamps: true,
