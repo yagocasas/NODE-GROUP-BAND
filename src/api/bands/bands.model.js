@@ -33,8 +33,8 @@ const bandSchema = new Schema(
     members: { type: String},
     // members: { type: mongoose.Types.ObjectId, ref: "members" },
     exMembers: { type: String },
-    discography: { type: String},
-    // discography: { type: mongoose.Types.ObjectId, ref: "discography" },
+    // discography: { type: String},
+    discography: [{ type: mongoose.Types.ObjectId, ref: "albums" }],
   },
   {
     timestamps: true,

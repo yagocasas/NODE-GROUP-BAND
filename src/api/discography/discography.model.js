@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const discSchema = new Schema (
+const albumSchema = new Schema (
     {
         title: { type: String, required: true },
+        img: { type: String },
         released: { type: Date },
         label: { type: String },
         producer: { type: String},
@@ -15,6 +16,6 @@ const discSchema = new Schema (
     }
 );
 
-const Disc = mongoose.model('discs', discSchema);
+const Album = mongoose.model('albums', albumSchema);
 
-module.exports = Disc;
+module.exports = Album;

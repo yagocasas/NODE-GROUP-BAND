@@ -1,7 +1,8 @@
 const express = require('express');
 require('dotenv').config();
 const bandsRoutes = require('./src/api/bands/bands.routes');
-const discRoutes = require('./src/api/discography/discography.routes');
+const albumRoutes = require('./src/api/discography/discography.routes');
+const usersRoutes = require('./src/api/users/users.routes');
 
 const db = require('./src/utils/database/db');
 db.connectDb();
@@ -13,8 +14,9 @@ const server = express();
 const router = express.Router();
 
 server.use(express.json());
+server.use('/users', usersRoutes)
 server.use('/bands', bandsRoutes);
-server.use('/discography', discRoutes);
+server.use('/discography', albumRoutes);
 
 server.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);

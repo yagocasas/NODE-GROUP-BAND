@@ -1,23 +1,23 @@
 const express = require("express");
-const Disc = require("./discography.model");
+const Album = require("./discography.model");
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const allDiscs = await Disc.find();
-    return res.status(200).json(allDiscs);
+    const allAlbums = await Album.find(); // con el .populate no nos funciona, y nos tira el servidor
+    return res.status(200).json(allAlbums);
   } catch (error) {
-    return res.status(500).json("Error al obtener los discos", error.message);
+    return res.status(500).json("Error al obtener los albumes", error.message);
   }
 });
 
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const discToFind = await Disc.findById(id);
-    console.log(discToFind);
-    return res.status(200).json(discToFind);
+    const albumToFind = await Album.findById(id);
+    console.log(albumToFind);
+    return res.status(200).json(albumToFind);
   } catch (error) {
     return res.status(500).json(error);
   }
@@ -26,9 +26,9 @@ router.get("/:id", async (req, res) => {
 router.get("/title/:title", async (req, res) => {
   try {
     const title = req.params.title;
-    const discByTitle = await Disc.findOne({ title: title });
-    console.log(discByTitle);
-    return res.status(200).json(discByTitle);
+    const albumByTitle = await Album.findOne({ title: title });
+    console.log(albumByTitle);
+    return res.status(200).json(albumByTitle);
   } catch (error) {
     return res.status(500).json("Error al encontrar por título");
   }
@@ -36,26 +36,26 @@ router.get("/title/:title", async (req, res) => {
 
 router.post("/create", async (req, res) => {
   try {
-    const disc = req.body;
-    const newDisc = new Disc(disc);
-    const created = await newDisc.save();
+    const album = req.body;
+    const newAlbum = new Album(album);
+    const created = await newAlbum.save();
     return res.status(201).json(created);
   } catch (error) {
-    return res.status(500).json("Error al crear el disco");
+    return res.status(500).json("Error al crear el álbum");
   }
 });
 
 router.put("/edit/:id", async (req, res) => {
-  // SE EDITADO SOLO EL PRIMER VALOR
+  // SE HA EDITADO SOLO EL PRIMER VALOR
   try {
     const id = req.params.id;
-    const disc = req.body;
-    const editedDisc = new Disc(disc);
-    editedDisc._id = id; // Para que no se modifique la id
-    const discUpdated = await Disc.findByIdAndUpdate(id, editedDisc);
+    const album = req.body;
+    const editedAlbum = new Album(album);
+    editedAlbum._id = id; // Para que no se modifique la id
+    const albumUpdated = await Album.findByIdAndUpdate(id, editedAlbum);
     return res
       .status(201)
-      .json({ message: "Se ha editando correctamente la banda", discUpdated });
+      .json({ message: "Se ha editando correctamente la banda", albumUpdated });
   } catch (error) {
     return res.status(500).json("Error al editar la banda");
   }
@@ -64,7 +64,7 @@ router.put("/edit/:id", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const discToDelete = await Disc.findByIdAndDelete(id);
+    const albumToDelete = await Album.findByIdAndDelete(id);
     return res.status(200).json("Se ha eliminando correctamente la banda");
   } catch (error) {
     return res.status(500).json("No se ha eliminado correctamente la banda");
