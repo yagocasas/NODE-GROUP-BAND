@@ -1,7 +1,6 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -20,5 +19,15 @@
     "mongoose": "^6.7.0",
     "mongoose-unique-validator": "^3.1.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariosepulveda3/NODE-GROUP-BAND.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/mariosepulveda3/NODE-GROUP-BAND/issues"
+  },
+  "homepage": "https://github.com/mariosepulveda3/NODE-GROUP-BAND#readme",
+  "description": ""
 }
