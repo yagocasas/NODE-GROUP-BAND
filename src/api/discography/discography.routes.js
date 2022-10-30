@@ -23,12 +23,12 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/disc/:disc", async (req, res) => {
+router.get("/title/:title", async (req, res) => {
   try {
-    const disc = req.params.disc;
-    const discByDisc = await Disc.findOne({ disc: disc });
-    console.log(discByDisc);
-    return res.status(200).json(discByDisc);
+    const title = req.params.disc;
+    const discByTitle = await Disc.findOne({ title: title });
+    console.log(discByTitle);
+    return res.status(200).json(discByTitle);
   } catch (error) {
     return res.status(500).json("Error al encontrar por título");
   }

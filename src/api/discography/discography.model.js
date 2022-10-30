@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const discoSchema = new Schema (
+const discSchema = new Schema (
     {
         title: { type: String, required: true },
         released: { type: Date },
@@ -15,6 +15,6 @@ const discoSchema = new Schema (
     }
 );
 
-const Disc = mongoose.model('discs', discoSchema);
+const Disc = mongoose.model('discs', discSchema);
 
 module.exports = Disc;
