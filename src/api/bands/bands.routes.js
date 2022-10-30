@@ -1,6 +1,8 @@
 const express = require("express");
 const Band = require("./bands.model");
 
+const { isAuth, isAdmin } = require('../../middlewares/auth');
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -12,7 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", [isAuth], async (req, res) => {
   try {
     const id = req.params.id;
     const bandToFind = await Band.findById(id);
@@ -61,7 +63,7 @@ router.put("/edit/:id", async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", [isAdmin], async (req, res) => {
   try {
     const id = req.params.id;
     const bandToDelete = await Band.findByIdAndDelete(id);
