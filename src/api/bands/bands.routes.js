@@ -1,9 +1,8 @@
 const express = require("express");
 const Band = require("./bands.model");
-
-
 const { isAuth, isAdmin } = require('../../middlewares/auth');
 const upload = require("../../middlewares/file");
+const { deleteFile } = require('../../middlewares/deleteFile');
 
 const router = express.Router();
 
