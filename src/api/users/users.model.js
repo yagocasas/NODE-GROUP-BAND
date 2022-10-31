@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    email: { type: String, required: true },
-    password: { type: String, required: true },
+    email: { type: String, required: true, trim: true },
+    password: { type: String, required: true, trim: true },
     rol: { type: String, enum: ["admin", "user"], default: "user"},
-    name: { type: String, required: true },
-    lastname: { type: String, required: true },
-    username: { type: String, required: true, index: { unique: true }},
+    name: { type: String, required: true, trim: true },
+    lastname: { type: String, required: true, trim: true },
+    username: { type: String, required: true, index: { unique: true } , trim: true},
     photo: { type: String}
   },
   {
