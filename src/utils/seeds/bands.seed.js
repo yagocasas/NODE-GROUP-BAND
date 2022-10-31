@@ -5,7 +5,7 @@ const { DB_URL } = require('../database/db');
 const bands = [
     {
         name: "Nirvana",
-        img: "https://www.elnacional.cat/uploads/s1/15/51/89/99/nirvana.jpeg",
+        img: "https://indiehoy.com/wp-content/uploads/2020/09/nirvana-logo.jpg",
         genre: "Rock",
         origin: "Washington, Estados Unidos",
         founded: 1987,
@@ -16,7 +16,7 @@ const bands = [
     },
     {
         name: "Red Hot Chili Peppers",
-        img: "https://seeklogo.com/images/R/red-hot-chili-peppers-logo-A543BC87F8-seeklogo.com.png",
+        img: "https://static.posters.cz/image/750/posters/red-hot-chili-peppers-logo-i4622.jpg",
         genre: "Rock",
         origin: "California, Estados Unidos",
         founded: 1983,
@@ -37,7 +37,7 @@ const bands = [
     },
     {
         name: "Michael Jackson",
-        img: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-475778060-1527000864.jpg",
+        img: "https://www.treceveinte.net/wp-content/uploads/2017/06/michael-jackson-600x800.jpg",
         genre: "Pop",
         origin: "Indiana, Estados Unidos",
         founded: 1964,
