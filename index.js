@@ -26,8 +26,6 @@ server.use(cors({
 
 const router = express.Router();
 
-
-
 server.use(express.json());
 server.use('/users', usersRoutes)
 server.use('/bands', bandsRoutes);
