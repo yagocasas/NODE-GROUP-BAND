@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
         return res.status(404).json('No existe el usuario indicado');
     }
     if (bcrypt.compareSync(req.body.password, userDB.password)) {
-        const token = generateSign(userDb._id, userDB.email);
+        const token = generateSign(userDB._id, userDB.email);
         return res.status(200).json({ token, userDB });
     } else {
         return res.status(500).json("La contraseña indicada es incorrecta");        
