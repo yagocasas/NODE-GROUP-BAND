@@ -37,7 +37,7 @@ router.get("/name/:name", async (req, res) => {
   }
 });
 
-router.post("/create", upload.single("img"), async (req, res) => {
+router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
   try {
     const band = req.body;
     if (req.file){
@@ -51,7 +51,7 @@ router.post("/create", upload.single("img"), async (req, res) => {
   }
 });
 
-router.post('/add-album/:id', async (req, res, next) => {
+router.post('/add-album/:id', [isAuth], async (req, res, next) => {
   try {
       const { id } = req.params;
       const {album} = req.body;

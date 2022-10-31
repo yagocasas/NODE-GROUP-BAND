@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Band = require('../../api/bands/bands.model');
-const { DB_URL } = require('../database/db');
-
+const DB_URL = "mongodb+srv://bandsgroup:bandsgroup@cluster0.z7ls8i6.mongodb.net/bandsgroup?retryWrites=true&w=majority";
 const bands = [
     {
         name: "Nirvana",
@@ -12,7 +11,6 @@ const bands = [
         currentlyActive: false,
         members: "Kurt Cobain, Krist Novoselic, Dave Grohl",
         exMembers: "Chad Channing, Jason Everman, Dale Crover, Dave Foster, Aaron Burckhard, Dan Peters, Pat Smear",
-        discography: "Nevermind",
     },
     {
         name: "Red Hot Chili Peppers",
@@ -23,7 +21,6 @@ const bands = [
         currentlyActive: true,
         members: "Anthony Kiedis, Flea Balzary, Chad Smith, John Frusciante,",
         exMembers: "Hillel Slovak, Jack Irons, Dave Navarro, Josh Klinghoffer, Arik Marshall",
-        discography: "Blood Sugar Sex Magik",
     },
     {
         name: "Drake",
@@ -33,7 +30,6 @@ const bands = [
         founded: 2008,
         currentlyActive: true,
         members: "",
-        discography: "Nothing Was The Same",
     },
     {
         name: "Michael Jackson",
@@ -42,8 +38,7 @@ const bands = [
         origin: "Indiana, Estados Unidos",
         founded: 1964,
         currentlyActive: false,
-        members: "",
-        discography: "Bad",
+        members: "Michael Jackson",
     },
 ];
 
