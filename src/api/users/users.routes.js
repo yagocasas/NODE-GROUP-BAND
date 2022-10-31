@@ -17,8 +17,12 @@ router.post("/register", async (req, res) => {
   try {
     const user = req.body;
     const newUser = new User(user);
-    const created = await newUser.save();
-    return res.status(201).json(created);
+    if (newUser.rol === "user") {
+      const created = await newUser.save();
+      return res.status(201).json(created);
+    } else {
+      return res.status(500).json('no te puedes registrar como admin')
+    }
   } catch (error) {
     return res.status(500).json("Error al crear el usuario");
   }
@@ -26,13 +30,13 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const userDb = await User.findOne({ email: req.body.email});
-    if (!userDb) {
+    const userDB = await User.findOne({ email: req.body.email});
+    if (!userDB) {
         return res.status(404).json('No existe el usuario indicado');
     }
-    if (bcrypt.compareSync(req.body.password, userDb.password)) {
-        const token = generateSign(userDb._id, userDb.email);
-        return res.status(200).json({ token, userDb });
+    if (bcrypt.compareSync(req.body.password, userDB.password)) {
+        const token = generateSign(userDb._id, userDB.email);
+        return res.status(200).json({ token, userDB });
     } else {
         return res.status(500).json("La contraseña indicada es incorrecta");        
     }

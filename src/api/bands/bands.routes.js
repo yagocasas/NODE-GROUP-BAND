@@ -57,7 +57,7 @@ router.post('/add-album/:id', async (req, res, next) => {
       const { id } = req.params;
       const {album} = req.body;
 
-      const bandUpdated = await Band.findByIdAndUpdate(id, { $set: { discography: album } }, {new: true, lean: true});
+      const bandUpdated = await Band.findByIdAndUpdate(id, { $push: { discography: album } }, {new: true, lean: true});
 
       console.log(bandUpdated);
 

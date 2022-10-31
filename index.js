@@ -3,9 +3,16 @@ require('dotenv').config();
 const bandsRoutes = require('./src/api/bands/bands.routes');
 const albumRoutes = require('./src/api/discography/discography.routes');
 const usersRoutes = require('./src/api/users/users.routes');
+const cloudinary = require('cloudinary').v2;
 
 const db = require('./src/utils/database/db');
 db.connectDb();
+
+cloudinary.config( {
+    cloud_name: process.env.CLOUD_NAME,
+    api_key:process.env.API_KEY,
+    api_secret:process.env.API_SECRET
+})
 
 const PORT = process.env.PORT || 8080;
 const DB_URL = process.env.DB_URL;
