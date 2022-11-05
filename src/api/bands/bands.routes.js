@@ -66,11 +66,19 @@ router.post('/add-album/:id', [isAuth], async (req, res, next) => {
   }
 });
 
-router.put("/edit/:id", async (req, res) => {
+router.put("/edit/:id",  upload.single("img"), async (req, res) => {
   // SE EDITADO SOLO EL PRIMER VALOR
   try {
     const id = req.params.id;
     const band = req.body;
+    const bandOld = await Band.findById(id);
+    if (req.file){
+      if (bandOld.img){
+        console.log(bandOld.img);
+        deleteFile(bandOld.img)
+      }
+      band.img = req.file.path;
+    }
     const editedBand = new Band(band);
     editedBand._id = id; // Para que no se modifique la id
     const bandUpdated = await Band.findByIdAndUpdate(id, editedBand);
