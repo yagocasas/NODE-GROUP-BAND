@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const albumSchema = new Schema (
     {
         title: { type: String, required: true },
-        img: { type: String },
+        img: { type: String, required: true},
         released: { type: Date },
         label: { type: String },
         producer: { type: String},

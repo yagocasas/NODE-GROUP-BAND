@@ -22,24 +22,6 @@ const bands = [
         members: "Anthony Kiedis, Flea Balzary, Chad Smith, John Frusciante,",
         exMembers: "Hillel Slovak, Jack Irons, Dave Navarro, Josh Klinghoffer, Arik Marshall",
     },
-    {
-        name: "Drake",
-        img: "https://upload.wikimedia.org/wikipedia/commons/2/28/Drake_July_2016.jpg",
-        genre: "Rap",
-        origin: "Toronto, Canada",
-        founded: 2008,
-        currentlyActive: true,
-        members: "",
-    },
-    {
-        name: "Michael Jackson",
-        img: "https://www.treceveinte.net/wp-content/uploads/2017/06/michael-jackson-600x800.jpg",
-        genre: "Pop",
-        origin: "Indiana, Estados Unidos",
-        founded: 1964,
-        currentlyActive: false,
-        members: "Michael Jackson",
-    },
 ];
 
 mongoose.connect(DB_URL)

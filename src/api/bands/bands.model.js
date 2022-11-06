@@ -8,7 +8,7 @@ const bandSchema = new Schema(
     img: {
         type: String,
         default:
-          "https://p1.pxfuel.com/preview/870/604/61/concert-singer-women-music-singing.jpg",
+          "https://p1.pxfuel.com/preview/870/604/61/concert-singer-women-music-singing.jpg", required: true
       },
     genre: {
       type: String,

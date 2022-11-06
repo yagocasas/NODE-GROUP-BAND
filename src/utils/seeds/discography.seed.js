@@ -20,22 +20,6 @@ const albumes = [
         length: "39:50",
     },
     {
-        title: "Thriller ",
-        img: "https://m.media-amazon.com/images/I/41wlOC3A5KL._AC_.jpg",
-        released: "1982-11-30T00:00:00.000Z",
-        label: "Epi Records",
-        producer: "Quincy Jones, Michael Jackson",
-        length: "42:19",
-    },
-    {
-        title: "Dangerous",
-        img: "http://cdn.shopify.com/s/files/1/0385/1232/8844/products/MichaelJackson_Dangerous_1024x.jpg?v=1607793528",
-        released: "1991-11-26T00:00:00.000Z",
-        label: "Epic",
-        producer: " Michael Jackson",
-        length: "1:16:56",
-    },
-    {
         title: "Nevermind",
         img: "https://m.media-amazon.com/images/I/71DQrKpImPL._SL1400_.jpg",
         released: "1991-09-24T00:00:00.000Z",
@@ -50,7 +34,7 @@ const albumes = [
         label: "DGC Records",
         producer: "Steve Albini y Scott Litt",
         length: "41:12",
-    }
+    },
 ];
 
 mongoose.connect(DB_URL)
