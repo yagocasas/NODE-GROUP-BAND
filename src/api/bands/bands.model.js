@@ -27,7 +27,7 @@ const bandSchema = new Schema(
       required: true,
     },
     origin: { type: String },
-    founded: { type: Number},
+    founded: { type: Number, required: true},
     currentlyActive: { type: Boolean },
     members: { type: String},
     // members: { type: mongoose.Types.ObjectId, ref: "members" },
