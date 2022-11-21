@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariosepulveda3/NODE-GROUP-BAND.git"
+    "url": "git+https://github.com/yagocasas/NODE-GROUP-BAND.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/mariosepulveda3/NODE-GROUP-BAND/issues"
+    "url": "https://github.com/yagocasas/NODE-GROUP-BAND/issues"
   },
-  "homepage": "https://github.com/mariosepulveda3/NODE-GROUP-BAND#readme",
+  "homepage": "https://github.com/yagocasas/NODE-GROUP-BAND#readme",
   "description": ""
 }

@@ -46,7 +46,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/logout/:id", [isAuth],async (req, res) => {
+//router.post("/logout/:id", [isAuth],async (req, res) => {
+router.post("/logout/:id", async (req, res) => {
   try {
     const token = null;
     return res.status(200).json(token);
@@ -55,7 +56,8 @@ router.post("/logout/:id", [isAuth],async (req, res) => {
   }
 });
 
-router.put("/edit/:id", [isAuth], async (req, res) => {
+//router.put("/edit/:id", [isAuth], async (req, res) => {
+router.put("/edit/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const user = req.body;
@@ -68,7 +70,8 @@ router.put("/edit/:id", [isAuth], async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", [isAdmin], async (req, res) => {
+// router.delete("/delete/:id", [isAdmin], async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const userToDelete = await User.findByIdAndDelete(id);

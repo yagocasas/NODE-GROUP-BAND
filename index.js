@@ -1,9 +1,9 @@
 const express = require('express');
+require('dotenv').config();
 const bandsRoutes = require('./src/api/bands/bands.routes');
 const albumRoutes = require('./src/api/discography/discography.routes');
 const usersRoutes = require('./src/api/users/users.routes');
 const cors = require('cors');
-require('dotenv').config();
 const cloudinary = require('cloudinary').v2;
 const db = require('./src/utils/database/db');
 db.connectDb();

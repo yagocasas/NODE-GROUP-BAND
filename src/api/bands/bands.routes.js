@@ -15,7 +15,8 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", [isAuth], async (req, res, next) => {
+// router.get("/:id", [isAuth], async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     const bandToFind = await Band.findById(id);
@@ -37,7 +38,8 @@ router.get("/name/:name", async (req, res) => {
   }
 });
 
-router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
+// router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
+router.post("/create", upload.single("img"), async (req, res) => {
   try {
     const band = req.body;
     if (req.file){
@@ -51,7 +53,8 @@ router.post("/create", [isAuth], upload.single("img"), async (req, res) => {
   }
 });
 
-router.post('/add-album/:id', [isAuth], async (req, res, next) => {
+// router.post('/add-album/:id', [isAuth], async (req, res, next) => {
+router.post('/add-album/:id', async (req, res, next) => {
   try {
       const { id } = req.params;
       const {album} = req.body;
@@ -90,7 +93,8 @@ router.put("/edit/:id",  upload.single("img"), async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", [isAdmin], async (req, res) => {
+// router.delete("/delete/:id", [isAdmin], async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const bandToDelete = await Band.findByIdAndDelete(id);
