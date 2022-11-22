@@ -1,6 +1,6 @@
 const express = require("express");
 const Band = require("./bands.model");
-const { isAuth, isAdmin } = require('../../middlewares/auth');
+// const { isAuth, isAdmin } = require('../../middlewares/auth');
 const upload = require("../../middlewares/file");
 const { deleteFile } = require('../../middlewares/deleteFile');
 
@@ -20,7 +20,7 @@ router.get("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     const bandToFind = await Band.findById(id);
-    console.log(bandToFind);
+    // console.log(bandToFind);
     return res.status(200).json(bandToFind);
   } catch (error) {
     return res.status(500).json('Error al encontrar por Id');
