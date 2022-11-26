@@ -1,6 +1,6 @@
 const express = require("express");
 const Band = require("./bands.model");
-// const { isAuth, isAdmin } = require('../../middlewares/auth');
+const { isAuth, isAdmin } = require('../../middlewares/auth');
 const upload = require("../../middlewares/file");
 const { deleteFile } = require('../../middlewares/deleteFile');
 
@@ -69,7 +69,7 @@ router.post('/add-album/:id', async (req, res, next) => {
   }
 });
 
-router.put("/edit/:id",  upload.single("img"), async (req, res) => {
+router.put("/edit/:id",  [isAuth], upload.single("img"), async (req, res) => {
   // SE EDITADO SOLO EL PRIMER VALOR
   try {
     const id = req.params.id;

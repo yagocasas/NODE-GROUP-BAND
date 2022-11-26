@@ -6,6 +6,7 @@ const usersRoutes = require('./src/api/users/users.routes');
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 const db = require('./src/utils/database/db');
+
 db.connectDb();
 
 cloudinary.config( {

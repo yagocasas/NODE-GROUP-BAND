@@ -14,10 +14,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/register", async (req, res) => {
+router.post("/postNewUser", async (req, res) => {
   try {
     const user = req.body;
     const newUser = new User(user);
+    console.log(newUser);
     if (newUser.rol === "user") {
       const created = await newUser.save();
       return res.status(201).json(created);
@@ -46,8 +47,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//router.post("/logout/:id", [isAuth],async (req, res) => {
-router.post("/logout/:id", async (req, res) => {
+router.post("/logout/:id", [isAuth],async (req, res) => {
+// router.post("/logout/:id", async (req, res) => {
   try {
     const token = null;
     return res.status(200).json(token);
@@ -70,8 +71,8 @@ router.put("/edit/:id", async (req, res) => {
   }
 });
 
-// router.delete("/delete/:id", [isAdmin], async (req, res) => {
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", [isAdmin], async (req, res) => {
+// router.delete("/delete/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const userToDelete = await User.findByIdAndDelete(id);
@@ -80,5 +81,15 @@ router.delete("/delete/:id", async (req, res) => {
     return res.status(500).json("No se ha podido eliminar al usuario");
   }
 });
+
+router.get("/checksession", [isAuth], (req, res) => { //se usa el método post. Aquí utilizo el get pq no recibe parámetros y me da igual
+  console.log(req.headers.authorization);
+  try {
+    return res.status(200).json(req.user);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+});
+
 
 module.exports = router;

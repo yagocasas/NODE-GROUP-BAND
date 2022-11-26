@@ -5,7 +5,7 @@ const { connectDb } = require('../database/db')
 const bands = [
     {
         name: "Nirvana",
-        img: "https://indiehoy.com/wp-content/uploads/2020/09/nirvana-logo.jpg",
+        img: "https://1000logos.net/wp-content/uploads/2017/03/Nirvana-Logo.png",
         genre: "Rock",
         origin: "Washington, Estados Unidos",
         founded: 1987,
@@ -15,7 +15,7 @@ const bands = [
     },
     {
         name: "Red Hot Chili Peppers",
-        img: "https://static.posters.cz/image/750/posters/red-hot-chili-peppers-logo-i4622.jpg",
+        img: "https://seeklogo.com/images/R/red-hot-chili-peppers-logo-A543BC87F8-seeklogo.com.png",
         genre: "Rock",
         origin: "California, Estados Unidos",
         founded: 1983,
@@ -35,7 +35,7 @@ const bands = [
     },
     {
         name: "Pearl Jam",
-        img: "http://ww1.prweb.com/prfiles/2014/05/29/11898255/pearl-jam-tickets-moline-illinois-iwireless-center.jpg",
+        img: "https://i.pinimg.com/originals/b3/53/f7/b353f794ad26c095b949dd1deb40e1a9.png",
         genre: "Grunge",
         origin: "Seattle, Estados Unidos",
         founded: 1990,
@@ -45,7 +45,7 @@ const bands = [
     },
     {
         name: "The Black Crowes",
-        img: "https://theblackcrowes.wpenginepowered.com/wp-content/themes/black-crowes/assets/img/illustration-clean.svg",
+        img: "https://images.fineartamerica.com/images/artworkimages/medium/3/3-best-selling-logo-music-the-black-crowes-fenomenal-disco-punkhead-transparent.png",
         genre: "Rock",
         origin: "Georgia, Estados Unidos",
         founded: 1984,
@@ -55,7 +55,7 @@ const bands = [
     },
     {
         name: "Audioslave",
-        img: "https://i.pinimg.com/originals/21/f7/65/21f7655584619ac55c7c3a96ad266b22.jpg",
+        img: "https://chriscornell.com/wp-content/themes/Chris%20Cornell%202018/img/audioslave.png",
         genre: "Rock",
         origin: "California, Estados Unidos",
         founded: 2001,
@@ -65,7 +65,7 @@ const bands = [
     },
     {
         name: "Incubus",
-        img: "https://www.pngitem.com/pimgs/m/513-5133280_transparent-supreme-vector-incubus-logo-hd-png-download.png",
+        img: "https://cdn.freebiesupply.com/logos/thumbs/2x/incubus-logo.png",
         genre: "Rock",
         origin: "California, Estados Unidos",
         founded: 1991,
@@ -75,7 +75,7 @@ const bands = [
     },
     {
         name: "Moon Cresta",
-        img: "https://f4.bcbits.com/img/0016018464_10.jpg",
+        img: "https://www.redescena.net/imagenes/contenido/logos-cias/logoai.png",
         genre: "Rock",
         origin: "Vigo, Galicia",
         founded: 1983,
