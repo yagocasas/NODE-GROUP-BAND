@@ -26,7 +26,7 @@ router.post("/postNewUser", async (req, res) => {
       return res.status(500).json("no te puedes registrar como admin");
     }
   } catch (error) {
-    return res.status(500).json("Error al crear el usuario");
+    return res.status(500).json("No se ha podido registrar al nuevo ususario/a");
   }
 });
 

@@ -8,9 +8,9 @@ const userSchema = new Schema(
     email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true, trim: true },
     rol: { type: String, enum: ["admin", "user"], default: "user"},
-    name: { type: String, trim: true },//requerido??
+    name: { type: String, trim: true },//requerido?? 
     lastname: { type: String, trim: true },//requerido??
-    username: { type: String, index: { unique: true } , trim: true}, //requerido?
+    username: { type: String, index: { unique: true } , trim: true}, //requerido? cuándo
     photo: { type: String}
   },
   {
