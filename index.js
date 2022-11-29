@@ -3,6 +3,7 @@ require('dotenv').config();
 const bandsRoutes = require('./src/api/bands/bands.routes');
 const albumRoutes = require('./src/api/discography/discography.routes');
 const usersRoutes = require('./src/api/users/users.routes');
+const indexRoutes = require('./src/api/index/index.routes')
 const cors = require('cors');
 const cloudinary = require('cloudinary').v2;
 const db = require('./src/utils/database/db');
@@ -29,6 +30,7 @@ server.use(cors({
 const router = express.Router();
 
 server.use(express.json());
+server.use('/', indexRoutes)
 server.use('/users', usersRoutes)
 server.use('/bands', bandsRoutes);
 server.use('/discography', albumRoutes);
